@@ -35,7 +35,7 @@
     const GRAPH_API_VERSION = "v22.0";
     // const ACCESS_TOKEN = ${{ secrets.ACCESS_TOKEN }}; // Add your token here
     // for github secrets used in Actions
-    const ACCESS_TOKEN = ${{ secrets.ACCESS_TOKEN }};
+    const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 
     async function sendMessage(payload) {
       const out = document.getElementById("output");
