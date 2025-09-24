@@ -29,13 +29,11 @@
   <pre id="output">Waiting...</pre>
 
   <script>
-    // ⚠️ Replace with your details from WhatsApp Cloud API
     const PHONE_NUMBER_ID = "716301431576675";
-    // const ACCESS_TOKEN = "EAAPKEBmoa4kBPVQDHZBaXSHQrgfPARPOWimuDqMHRhEnB7HDFIMBNuRcIb7obhcZCVcZAbZCeldUcrFrZCXV4lfYAIrqxcO23xEgDwdIn8f9SyZAuy5wEW0Dlgz63rlxMZCc5zZATkq6h2TyZB46gT6gI6N34w71HIUXVKk2ZCmdGNZAwYWqhxItvvZBmH0Iu9gX02jMrAZDZD";
     const GRAPH_API_VERSION = "v22.0";
-    // const ACCESS_TOKEN = ${{ secrets.ACCESS_TOKEN }}; // Add your token here
-    // for github secrets used in Actions
-    const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+
+    // The access token will be passed to this script by the workflow
+    const ACCESS_TOKEN = "your_access_token_will_be_here";
 
     async function sendMessage(payload) {
       const out = document.getElementById("output");
@@ -95,7 +93,6 @@
       const to = document.getElementById("to").value.trim();
       if (!to) return (output.textContent = "Recipient required");
 
-      // Example order data
       const order = {
         name: "Siva",
         items: [
@@ -105,7 +102,6 @@
         ]
       };
 
-      // Build receipt text
       let body = `Hi ${order.name},\n\nYour Order details:\n`;
       let total = 0;
       order.items.forEach(item => {
